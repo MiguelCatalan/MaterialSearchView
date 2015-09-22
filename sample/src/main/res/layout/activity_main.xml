@@ -1,0 +1,40 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/toolbar_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/button_default"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Default"
+                android:textColor="@color/theme_secondary_text" />
+
+            <Button
+                android:id="@+id/button_themed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Themed"
+                android:textColor="@color/theme_secondary_text" />
+
+            <Button
+                android:id="@+id/button_voice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Voice"
+                android:textColor="@color/theme_secondary_text" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>
