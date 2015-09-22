@@ -549,7 +549,6 @@ public class MaterialSearchView extends FrameLayout implements Filter.FilterList
         mSearchViewListener = listener;
     }
 
-
     @Override
     public void onFilterComplete(int count) {
         if (count > 0) {
@@ -559,9 +558,6 @@ public class MaterialSearchView extends FrameLayout implements Filter.FilterList
         }
     }
 
-    /**
-     * @hide
-     */
     @Override
     public boolean requestFocus(int direction, Rect previouslyFocusedRect) {
         // Don't accept focus if in the middle of clearing focus
@@ -571,9 +567,6 @@ public class MaterialSearchView extends FrameLayout implements Filter.FilterList
         return mSearchSrcTextView.requestFocus(direction, previouslyFocusedRect);
     }
 
-    /**
-     * @hide
-     */
     @Override
     public void clearFocus() {
         mClearingFocus = true;
@@ -582,8 +575,7 @@ public class MaterialSearchView extends FrameLayout implements Filter.FilterList
         mSearchSrcTextView.clearFocus();
         mClearingFocus = false;
     }
-
-
+    
     @Override
     public Parcelable onSaveInstanceState() {
         //begin boilerplate code that allows parent classes to save state
