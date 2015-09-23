@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">MaterialSearchView</string>
+
+    <string name="title_activity_colored">ColoredActivity</string>
+    <string name="title_activity_default">DefaultActivity</string>
+    <string name="title_activity_voice">VoiceActivity</string>
+
+    <string name="action_settings">Settings</string>
+
+</resources>
