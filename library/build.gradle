@@ -18,7 +18,7 @@ android {
         minSdkVersion 16
         targetSdkVersion 22
         versionCode 1
-        versionName "1.0.0"
+        versionName "1.0.1"
     }
     buildTypes {
         release {
@@ -37,7 +37,7 @@ publish {
     userOrg = 'miguelcatalan'
     groupId = 'com.miguelcatalan'
     artifactId = 'materialsearchview'
-    publishVersion = '1.0.0'
+    publishVersion = '1.0.1'
     desc = 'Cute library to implement SearchView in a Material Design Approach'
     website = 'https://github.com/MiguelCatalan/MaterialSearchView'
 }

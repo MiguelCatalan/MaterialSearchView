@@ -35,7 +35,6 @@
                 android:singleLine="true"
                 android:textColor="#212121"
                 android:textColorHint="#727272"
-                android:textCursorDrawable="@drawable/color_cursor_themed"
                 android:textSize="16sp" />
 
             <ImageButton

@@ -12,7 +12,7 @@ Cute library to implement SearchView in a Material Design Approach
 **Add the dependencies to your gradle file:**
 
 	dependencies {
-    	compile 'com.miguelcatalan:materialsearchview:1.0.0'
+    	compile 'com.miguelcatalan:materialsearchview:1.0.1'
 	}
 
 **Add MaterialSearchView to your layout file along with the Toolbar** *(Add this block at the bottom of your layout, in order to display it over the rest of the view)*:
@@ -46,8 +46,8 @@ Cute library to implement SearchView in a Material Design Approach
 
 **Add define it in the *onCreateOptionsMenu*:**
 
-		@Override
-		public boolean onCreateOptionsMenu(Menu menu) {
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
 
         MenuItem item = menu.findItem(R.id.action_search);
@@ -58,8 +58,8 @@ Cute library to implement SearchView in a Material Design Approach
 
 **Set the listeners:**
 
-	MaterialSearchView searchView = (MaterialSearchView) findViewById(R.id.search_view);
-	searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
+		MaterialSearchView searchView = (MaterialSearchView) findViewById(R.id.search_view);
+		searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 //Do some magic
@@ -72,7 +72,7 @@ Cute library to implement SearchView in a Material Design Approach
                 return false;
             }
         });
-
+        
         searchView.setOnSearchViewListener(new MaterialSearchView.SearchViewListener() {
             @Override
             public void onSearchViewShown() {
@@ -148,6 +148,17 @@ Cute library to implement SearchView in a Material Design Approach
         <!— Hint for edit text—>
         <item name="android:hint">@string/search_hint</item>
     </style>
+    
+#Custom cursor
+**Create the drawable:**
+	
+	<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    	<size android:width="2dp" />
+    	<solid android:color="@color/theme_primary" />
+	</shape>
+**And add it to the object:**
+
+	searchView.setCursorDrawable(R.drawable.custom_cursor);
     
 # Bonus
 **Close on backpressed:**
