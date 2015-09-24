@@ -10,14 +10,15 @@ Cute library to implement SearchView in a Material Design Approach. *Works from 
 
 # Usage
 **Add the dependencies to your gradle file:**
-
+```javascript
 	dependencies {
     	compile 'com.miguelcatalan:materialsearchview:1.1.0'
 	}
-
+```
 **Add MaterialSearchView to your layout file along with the Toolbar** *(Add this block at the bottom of your layout, in order to display it over the rest of the view)*:
 
-	<!— Must be last for right layering display —>
+```xml
+    <!— Must be last for right layering display —>
     <FrameLayout
         android:id="@+id/toolbar_container"
         android:layout_width="match_parent"
@@ -34,18 +35,19 @@ Cute library to implement SearchView in a Material Design Approach. *Works from 
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </FrameLayout>
+```
 
 **Add the search item into the menu file:**
-
+```xml
 	<item
         android:id="@+id/action_search"
         android:icon="@drawable/ic_action_action_search"
         android:orderInCategory="100"
         android:title="@string/abc_search_hint"
         app:showAsAction="always" />
-
+```
 **Add define it in the *onCreateOptionsMenu*:**
-
+```java
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -55,11 +57,11 @@ Cute library to implement SearchView in a Material Design Approach. *Works from 
 
         return true;
     }
-
+```
 **Set the listeners:**
-
-		MaterialSearchView searchView = (MaterialSearchView) findViewById(R.id.search_view);
-		searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
+```java
+	MaterialSearchView searchView = (MaterialSearchView) findViewById(R.id.search_view);
+	searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 //Do some magic
@@ -84,15 +86,15 @@ Cute library to implement SearchView in a Material Design Approach. *Works from 
                 //Do some magic
             }
         });
-
+```
 # Use VoiceSearch
 **Allow/Disable it in the code:**
-
+```java
 	searchView.setVoiceSearch(true); //or false
-
+```
 **Handle the response:**
-
-	@Override
+```java
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == MaterialSearchView.REQUEST_VOICE && resultCode == RESULT_OK) {
             ArrayList<String> matches = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
@@ -107,66 +109,69 @@ Cute library to implement SearchView in a Material Design Approach. *Works from 
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
-
+```
 # Add suggestions
 **Define them in the resources as a *string-array*:**
-
-	<string-array name="query_suggestions">
+```xml
+    <string-array name="query_suggestions">
         <item>Android</item>
         <item>iOS</item>
         <item>SCALA</item>
         <item>Ruby</item>
         <item>JavaScript</item>
     </string-array>
+```
 **Add them to the object:**	
-
+```java
 	searchView.setSuggestions(getResources().getStringArray(R.array.query_suggestions));
-
+```
 # Style it!
-	<style name="MaterialSearchViewStyle">
-        <!— Background for the search bar—>
+```xml
+    <style name="MaterialSearchViewStyle">
+        <!-- Background for the search bar -->
         <item name="searchBackground">@color/theme_primary</item>
 
-        <!— Change voice icon—>
+        <!-- Change voice icon -->
         <item name="searchVoiceIcon">@drawable/ic_action_voice_search_inverted</item>
 
-        <!— Change clear text icon—>
+        <!-- Change clear text icon -->
         <item name="searchCloseIcon">@drawable/ic_action_navigation_close_inverted</item>
 
-        <!— Change up icon—>
+        <!-- Change up icon -->
         <item name="searchBackIcon">@drawable/ic_action_navigation_arrow_back_inverted</item>
         
-        <!-- Change icon for the suggestions-->
+        <!-- Change icon for the suggestions -->
         <item name="searchSuggestionIcon">@drawable/ic_suggestion</item>
 
-        <!— Change background for the suggestions list view—>
+        <!-- Change background for the suggestions list view -->
         <item name="searchSuggestionBackground">@android:color/white</item>
 
-        <!— Change text color for edit text. This will also be the color of the cursor—>
+        <!-- Change text color for edit text. This will also be the color of the cursor -->
         <item name="android:textColor">@color/theme_primary_text_inverted</item>
 
-        <!— Change hint text color for edit text—>
+        <!-- Change hint text color for edit text -->
         <item name="android:textColorHint">@color/theme_secondary_text_inverted</item>
 
-        <!— Hint for edit text—>
+        <!-- Hint for edit text -->
         <item name="android:hint">@string/search_hint</item>
     </style>
-    
+```    
 #Custom cursor
 **Create the drawable:**
-	
-	<shape xmlns:android="http://schemas.android.com/apk/res/android">
+```xml	
+    <shape xmlns:android="http://schemas.android.com/apk/res/android">
     	<size android:width="2dp" />
     	<solid android:color="@color/theme_primary" />
-	</shape>
+    </shape>
+```	
 **And add it to the object:**
-
+```java
 	searchView.setCursorDrawable(R.drawable.custom_cursor);
-    
+```    
 # Bonus
 **Close on backpressed:**
-
-	@Override
+```java
+    @Override
     public void onBackPressed() {
         if (searchView.isSearchOpen()) {
             searchView.closeSearch();
@@ -174,7 +179,7 @@ Cute library to implement SearchView in a Material Design Approach. *Works from 
             super.onBackPressed();
         }
     }
-
+```
 # Help me
 Pull requests are more than welcome, help me and others improve this awesome library.
 
