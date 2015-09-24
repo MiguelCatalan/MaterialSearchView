@@ -13,6 +13,9 @@
         <!-- Change up icon-->
         <item name="searchBackIcon">@drawable/ic_action_navigation_arrow_back_inverted</item>
 
+        <!-- Change icon for the suggestions-->
+        <item name="searchSuggestionIcon">@drawable/ic_suggestion</item>
+
         <!-- Change background for the suggestions list view-->
         <item name="searchSuggestionBackground">@android:color/white</item>
 
@@ -25,5 +28,4 @@
         <!-- Hint for edit text-->
         <item name="android:hint">@string/search_hint</item>
     </style>
-
 </resources>

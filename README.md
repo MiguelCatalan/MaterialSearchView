@@ -1,5 +1,5 @@
 # MaterialSearchView
-Cute library to implement SearchView in a Material Design Approach
+Cute library to implement SearchView in a Material Design Approach. *Works from Android API 14 (ICS) and above*.
 
 ![sample](https://raw.githubusercontent.com/MiguelCatalan/MaterialSearchView/master/art/voice.gif) ![sample](https://raw.githubusercontent.com/MiguelCatalan/MaterialSearchView/master/art/default.gif)
 
@@ -12,13 +12,13 @@ Cute library to implement SearchView in a Material Design Approach
 **Add the dependencies to your gradle file:**
 
 	dependencies {
-    	compile 'com.miguelcatalan:materialsearchview:1.0.1'
+    	compile 'com.miguelcatalan:materialsearchview:1.1.0'
 	}
 
 **Add MaterialSearchView to your layout file along with the Toolbar** *(Add this block at the bottom of your layout, in order to display it over the rest of the view)*:
 
 	<!— Must be last for right layering display —>
-    <RelativeLayout
+    <FrameLayout
         android:id="@+id/toolbar_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -33,7 +33,7 @@ Cute library to implement SearchView in a Material Design Approach
             android:id="@+id/search_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-    </RelativeLayout>
+    </FrameLayout>
 
 **Add the search item into the menu file:**
 
@@ -135,6 +135,9 @@ Cute library to implement SearchView in a Material Design Approach
 
         <!— Change up icon—>
         <item name="searchBackIcon">@drawable/ic_action_navigation_arrow_back_inverted</item>
+        
+        <!-- Change icon for the suggestions-->
+        <item name="searchSuggestionIcon">@drawable/ic_suggestion</item>
 
         <!— Change background for the suggestions list view—>
         <item name="searchSuggestionBackground">@android:color/white</item>

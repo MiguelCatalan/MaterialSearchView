@@ -70,6 +70,7 @@ public class MaterialSearchView extends FrameLayout implements Filter.FilterList
     private SavedState mSavedState;
 
     private boolean allowVoiceSearch;
+    private Drawable suggestionIcon;
 
     private Context mContext;
 
@@ -125,6 +126,10 @@ public class MaterialSearchView extends FrameLayout implements Filter.FilterList
 
             if (a.hasValue(R.styleable.MaterialSearchView_searchSuggestionBackground)) {
                 setSuggestionBackground(a.getDrawable(R.styleable.MaterialSearchView_searchSuggestionBackground));
+            }
+
+            if (a.hasValue(R.styleable.MaterialSearchView_searchSuggestionIcon)) {
+                setSuggestionIcon(a.getDrawable(R.styleable.MaterialSearchView_searchSuggestionIcon));
             }
 
             a.recycle();
@@ -323,6 +328,10 @@ public class MaterialSearchView extends FrameLayout implements Filter.FilterList
         mBackBtn.setImageDrawable(drawable);
     }
 
+    public void setSuggestionIcon(Drawable drawable) {
+        suggestionIcon = drawable;
+    }
+
     public void setSuggestionBackground(Drawable background) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             mSuggestionsListView.setBackground(background);
@@ -384,7 +393,7 @@ public class MaterialSearchView extends FrameLayout implements Filter.FilterList
      */
     public void setSuggestions(String[] suggestions) {
         if (suggestions != null && suggestions.length > 0) {
-            final SearchAdapter adapter = new SearchAdapter(mContext, suggestions);
+            final SearchAdapter adapter = new SearchAdapter(mContext, suggestions, suggestionIcon);
             setAdapter(adapter);
 
             setOnItemClickListener(new AdapterView.OnItemClickListener() {
