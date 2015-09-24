@@ -2,6 +2,7 @@ package com.miguelcatalan.materialsearchview;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -23,12 +25,21 @@ public class SearchAdapter extends BaseAdapter implements Filterable {
 
     private String[] typeAheadData;
 
+    private Drawable suggestionIcon;
+
     LayoutInflater inflater;
 
     public SearchAdapter(Context context, String[] typeAheadData) {
         inflater = LayoutInflater.from(context);
         data = new ArrayList<>();
         this.typeAheadData = typeAheadData;
+    }
+
+    public SearchAdapter(Context context, String[] typeAheadData, Drawable suggestionIcon) {
+        inflater = LayoutInflater.from(context);
+        data = new ArrayList<>();
+        this.typeAheadData = typeAheadData;
+        this.suggestionIcon = suggestionIcon;
     }
 
     @Override
@@ -102,9 +113,14 @@ public class SearchAdapter extends BaseAdapter implements Filterable {
 
     private class MyViewHolder {
         TextView textView;
+        ImageView imageView;
 
         public MyViewHolder(View convertView) {
             textView = (TextView) convertView.findViewById(R.id.suggestion_text);
+            if (suggestionIcon != null) {
+                imageView = (ImageView) convertView.findViewById(R.id.suggestion_icon);
+                imageView.setImageDrawable(suggestionIcon);
+            }
         }
     }
 }
