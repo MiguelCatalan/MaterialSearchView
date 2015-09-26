@@ -393,6 +393,7 @@ public class MaterialSearchView extends FrameLayout implements Filter.FilterList
      */
     public void setSuggestions(String[] suggestions) {
         if (suggestions != null && suggestions.length > 0) {
+            mTintView.setVisibility(VISIBLE);
             final SearchAdapter adapter = new SearchAdapter(mContext, suggestions, suggestionIcon);
             setAdapter(adapter);
 
@@ -402,6 +403,8 @@ public class MaterialSearchView extends FrameLayout implements Filter.FilterList
                     setQuery((String) adapter.getItem(position), false);
                 }
             });
+        } else {
+            mTintView.setVisibility(GONE);
         }
     }
 
