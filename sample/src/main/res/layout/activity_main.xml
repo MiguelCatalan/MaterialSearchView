@@ -33,6 +33,13 @@
                 android:layout_height="wrap_content"
                 android:text="Voice"
                 android:textColor="@color/theme_secondary_text" />
+
+            <Button
+                android:id="@+id/button_sticky"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sticky"
+                android:textColor="@color/theme_secondary_text" />
         </LinearLayout>
 
     </RelativeLayout>

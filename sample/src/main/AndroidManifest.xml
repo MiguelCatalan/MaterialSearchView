@@ -28,6 +28,11 @@
             android:name=".VoiceActivity"
             android:label="@string/title_activity_voice" >
         </activity>
+        <activity
+            android:name=".StickyActivity"
+            android:label="@string/title_activity_sticky"
+            android:theme="@style/AppTheme" >
+        </activity>
     </application>
 
 </manifest>
