@@ -40,32 +40,20 @@
 
             <ImageButton
                 android:id="@+id/action_up_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                style="@style/MSV_ImageButton"
                 android:layout_centerVertical="true"
-                android:background="?android:attr/selectableItemBackground"
-                android:paddingLeft="@dimen/search_icon_padding"
-                android:paddingRight="@dimen/search_icon_padding"
                 android:src="@drawable/ic_action_navigation_arrow_back" />
 
             <ImageButton
                 android:id="@+id/action_voice_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                style="@style/MSV_ImageButton"
                 android:layout_alignParentRight="true"
-                android:background="?android:attr/selectableItemBackground"
-                android:paddingLeft="@dimen/search_icon_padding"
-                android:paddingRight="@dimen/search_icon_padding"
                 android:src="@drawable/ic_action_voice_search" />
 
             <ImageButton
                 android:id="@+id/action_empty_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                style="@style/MSV_ImageButton"
                 android:layout_alignParentRight="true"
-                android:background="?android:attr/selectableItemBackground"
-                android:paddingLeft="@dimen/search_icon_padding"
-                android:paddingRight="@dimen/search_icon_padding"
                 android:src="@drawable/ic_action_navigation_close"
                 android:visibility="gone" />
 

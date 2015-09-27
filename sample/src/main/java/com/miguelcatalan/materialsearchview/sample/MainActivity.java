@@ -11,6 +11,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button defaultButton;
     private Button themedButton;
     private Button voiceButton;
+    private Button stickyButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +24,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         themedButton.setOnClickListener(this);
         voiceButton = (Button) findViewById(R.id.button_voice);
         voiceButton.setOnClickListener(this);
-
+        stickyButton = (Button) findViewById(R.id.button_sticky);
+        stickyButton.setOnClickListener(this);
     }
 
     @Override
@@ -38,6 +40,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.button_voice:
                 intent = new Intent(this, VoiceActivity.class);
+                break;
+            case R.id.button_sticky:
+                intent = new Intent(this, StickyActivity.class);
                 break;
         }
         if (intent != null) {
