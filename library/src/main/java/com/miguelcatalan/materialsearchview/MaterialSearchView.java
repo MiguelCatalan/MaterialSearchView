@@ -274,12 +274,12 @@ public class MaterialSearchView extends FrameLayout implements Filter.FilterList
         }
     }
 
-    private void hideKeyboard(View view) {
+    public void hideKeyboard(View view) {
         InputMethodManager imm = (InputMethodManager) view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
-    private void showKeyboard(View view) {
+    public void showKeyboard(View view) {
         if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.GINGERBREAD_MR1 && view.hasFocus()) {
             view.clearFocus();
         }
