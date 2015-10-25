@@ -1,13 +1,14 @@
 package com.miguelcatalan.materialsearchview.utils;
 
 import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.os.Build;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPropertyAnimatorListener;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewAnimationUtils;
-import android.view.animation.DecelerateInterpolator;
 
 /**
  * @author Miguel Catalan Bañuls
@@ -81,21 +82,18 @@ public class AnimationUtil {
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public static void reveal(final View view, int animationDuration, final AnimationListener listener) {
-        View viewRoot = view;
-        int cx = (viewRoot.getRight());
-        int cy = (viewRoot.getTop() + viewRoot.getBottom()) / 2;
-        int finalRadius = Math.max(viewRoot.getWidth(), viewRoot.getHeight());
+    public static void reveal(final View view, final AnimationListener listener) {
+        int cx = view.getWidth() - (int) TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP, 24, view.getResources().getDisplayMetrics());
+        int cy = view.getHeight() / 2;
+        int finalRadius = Math.max(view.getWidth(), view.getHeight());
 
-        Animator anim = ViewAnimationUtils.createCircularReveal(viewRoot, cx, cy, 0, finalRadius);
-        viewRoot.setVisibility(View.VISIBLE);
-
-        anim.setDuration(animationDuration);
-        anim.setInterpolator(new DecelerateInterpolator());
-        anim.addListener(new Animator.AnimatorListener() {
+        Animator anim = ViewAnimationUtils.createCircularReveal(view, cx, cy, 0, finalRadius);
+        view.setVisibility(View.VISIBLE);
+        anim.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationStart(Animator animation) {
-                  listener.onAnimationStart(view);
+                listener.onAnimationStart(view);
             }
 
             @Override
@@ -105,7 +103,7 @@ public class AnimationUtil {
 
             @Override
             public void onAnimationCancel(Animator animation) {
-               listener.onAnimationCancel(view);
+                listener.onAnimationCancel(view);
             }
 
             @Override

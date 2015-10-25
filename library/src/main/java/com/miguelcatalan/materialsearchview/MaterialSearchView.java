@@ -274,12 +274,12 @@ public class MaterialSearchView extends FrameLayout implements Filter.FilterList
         }
     }
 
-    private void hideKeyboard(View view) {
+    public void hideKeyboard(View view) {
         InputMethodManager imm = (InputMethodManager) view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
-    private void showKeyboard(View view) {
+    public void showKeyboard(View view) {
         if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.GINGERBREAD_MR1 && view.hasFocus()) {
             view.clearFocus();
         }
@@ -529,7 +529,7 @@ public class MaterialSearchView extends FrameLayout implements Filter.FilterList
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             mSearchLayout.setVisibility(View.VISIBLE);
-            AnimationUtil.reveal(mSearchTopBar, AnimationUtil.ANIMATION_DURATION_MEDIUM, animationListener);
+            AnimationUtil.reveal(mSearchTopBar, animationListener);
 
         } else {
             AnimationUtil.fadeInView(mSearchLayout, AnimationUtil.ANIMATION_DURATION_MEDIUM, animationListener);
@@ -600,7 +600,7 @@ public class MaterialSearchView extends FrameLayout implements Filter.FilterList
         mSearchSrcTextView.clearFocus();
         mClearingFocus = false;
     }
-    
+
     @Override
     public Parcelable onSaveInstanceState() {
         //begin boilerplate code that allows parent classes to save state
