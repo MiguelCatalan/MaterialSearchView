@@ -1,8 +1,13 @@
 package com.miguelcatalan.materialsearchview.utils;
 
+import android.animation.Animator;
+import android.annotation.TargetApi;
+import android.os.Build;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPropertyAnimatorListener;
 import android.view.View;
+import android.view.ViewAnimationUtils;
+import android.view.animation.DecelerateInterpolator;
 
 /**
  * @author Miguel Catalan Bañuls
@@ -73,6 +78,42 @@ public class AnimationUtil {
             };
         }
         ViewCompat.animate(view).alpha(1f).setDuration(duration).setListener(vpListener);
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    public static void reveal(final View view, int animationDuration, final AnimationListener listener) {
+        View viewRoot = view;
+        int cx = (viewRoot.getRight());
+        int cy = (viewRoot.getTop() + viewRoot.getBottom()) / 2;
+        int finalRadius = Math.max(viewRoot.getWidth(), viewRoot.getHeight());
+
+        Animator anim = ViewAnimationUtils.createCircularReveal(viewRoot, cx, cy, 0, finalRadius);
+        viewRoot.setVisibility(View.VISIBLE);
+
+        anim.setDuration(animationDuration);
+        anim.setInterpolator(new DecelerateInterpolator());
+        anim.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+                  listener.onAnimationStart(view);
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                listener.onAnimationEnd(view);
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+               listener.onAnimationCancel(view);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        });
+        anim.start();
     }
 
     public static void fadeOutView(View view) {
