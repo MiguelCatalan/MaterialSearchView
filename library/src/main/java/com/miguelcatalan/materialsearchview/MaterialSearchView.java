@@ -491,9 +491,9 @@ public class MaterialSearchView extends FrameLayout implements Filter.FilterList
     }
 
     /**
-     * Open Search View. if animate is true, Animate the showing of the view.
+     * Open Search View. If animate is true, Animate the showing of the view.
      *
-     * @param animate
+     * @param animate true for animate
      */
     public void showSearch(boolean animate) {
         if (isSearchOpen()) {
@@ -613,11 +613,9 @@ public class MaterialSearchView extends FrameLayout implements Filter.FilterList
 
     @Override
     public Parcelable onSaveInstanceState() {
-        //begin boilerplate code that allows parent classes to save state
         Parcelable superState = super.onSaveInstanceState();
 
         mSavedState = new SavedState(superState);
-        //end
         mSavedState.query = mUserQuery != null ? mUserQuery.toString() : null;
         mSavedState.isSearchOpen = this.mIsSearchOpen;
 
@@ -626,7 +624,6 @@ public class MaterialSearchView extends FrameLayout implements Filter.FilterList
 
     @Override
     public void onRestoreInstanceState(Parcelable state) {
-        //begin boilerplate code so parent classes can restore state
         if (!(state instanceof SavedState)) {
             super.onRestoreInstanceState(state);
             return;

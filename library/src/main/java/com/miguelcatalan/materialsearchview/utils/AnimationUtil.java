@@ -57,7 +57,6 @@ public class AnimationUtil {
                 @Override
                 public void onAnimationStart(View view) {
                     if (!listener.onAnimationStart(view)) {
-                        //execute Parent MEthod
                         view.setDrawingCacheEnabled(true);
                     }
                 }
@@ -65,16 +64,12 @@ public class AnimationUtil {
                 @Override
                 public void onAnimationEnd(View view) {
                     if (!listener.onAnimationEnd(view)) {
-                        //execute Parent MEthod
                         view.setDrawingCacheEnabled(false);
                     }
                 }
 
                 @Override
                 public void onAnimationCancel(View view) {
-                    if (!listener.onAnimationCancel(view)) {
-                        //execute Parent MEthod
-                    }
                 }
             };
         }
@@ -127,7 +122,6 @@ public class AnimationUtil {
             @Override
             public void onAnimationStart(View view) {
                 if (listener == null || !listener.onAnimationStart(view)) {
-                    //execute Parent MEthod
                     view.setDrawingCacheEnabled(true);
                 }
             }
@@ -135,18 +129,13 @@ public class AnimationUtil {
             @Override
             public void onAnimationEnd(View view) {
                 if (listener == null || !listener.onAnimationEnd(view)) {
-                    //execute Parent MEthod
                     view.setVisibility(View.GONE);
-                    //view.setAlpha(1f);
                     view.setDrawingCacheEnabled(false);
                 }
             }
 
             @Override
             public void onAnimationCancel(View view) {
-                if (listener == null || !listener.onAnimationCancel(view)) {
-                    //execute Parent MEthod
-                }
             }
         });
     }
