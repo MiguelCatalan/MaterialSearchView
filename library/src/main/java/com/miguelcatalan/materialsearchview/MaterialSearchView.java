@@ -46,7 +46,7 @@ public class MaterialSearchView extends FrameLayout implements Filter.FilterList
 
     private MenuItem mMenuItem;
     private boolean mIsSearchOpen = false;
-
+    private int mAnimationDuration;
     private boolean mClearingFocus;
 
     //Views
@@ -161,6 +161,7 @@ public class MaterialSearchView extends FrameLayout implements Filter.FilterList
         initSearchView();
 
         mSuggestionsListView.setVisibility(GONE);
+        setAnimationDuration(AnimationUtil.ANIMATION_DURATION_MEDIUM);
     }
 
     private void initSearchView() {
@@ -474,6 +475,15 @@ public class MaterialSearchView extends FrameLayout implements Filter.FilterList
     }
 
     /**
+     * Sets animation duration. ONLY FOR PRE-LOLLIPOP!!
+     *
+     * @param duration duration of the animation
+     */
+    public void setAnimationDuration(int duration) {
+        mAnimationDuration = duration;
+    }
+
+    /**
      * Open Search View. This will animate the showing of the view.
      */
     public void showSearch() {
@@ -532,7 +542,7 @@ public class MaterialSearchView extends FrameLayout implements Filter.FilterList
             AnimationUtil.reveal(mSearchTopBar, animationListener);
 
         } else {
-            AnimationUtil.fadeInView(mSearchLayout, AnimationUtil.ANIMATION_DURATION_MEDIUM, animationListener);
+            AnimationUtil.fadeInView(mSearchLayout, mAnimationDuration, animationListener);
         }
     }
 
