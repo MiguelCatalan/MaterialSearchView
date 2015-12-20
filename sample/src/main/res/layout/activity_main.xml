@@ -40,6 +40,13 @@
                 android:layout_height="wrap_content"
                 android:text="Sticky"
                 android:textColor="@color/theme_secondary_text" />
+
+            <Button
+                android:id="@+id/button_tab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tabs"
+                android:textColor="@color/theme_secondary_text" />
         </LinearLayout>
 
     </RelativeLayout>
