@@ -30,8 +30,11 @@
         </activity>
         <activity
             android:name=".StickyActivity"
-            android:label="@string/title_activity_sticky"
-            android:theme="@style/AppTheme" >
+            android:label="@string/title_activity_sticky">
+        </activity>
+        <activity
+            android:name=".TabActivity"
+            android:label="@string/title_activity_tab">
         </activity>
     </application>
 
