@@ -69,6 +69,8 @@ public class MaterialSearchView extends FrameLayout implements Filter.FilterList
 
     private SavedState mSavedState;
 
+    private boolean ellipsize = false;
+
     private boolean allowVoiceSearch;
     private Drawable suggestionIcon;
 
@@ -395,7 +397,7 @@ public class MaterialSearchView extends FrameLayout implements Filter.FilterList
     public void setSuggestions(String[] suggestions) {
         if (suggestions != null && suggestions.length > 0) {
             mTintView.setVisibility(VISIBLE);
-            final SearchAdapter adapter = new SearchAdapter(mContext, suggestions, suggestionIcon);
+            final SearchAdapter adapter = new SearchAdapter(mContext, suggestions, suggestionIcon, ellipsize);
             setAdapter(adapter);
 
             setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -582,6 +584,15 @@ public class MaterialSearchView extends FrameLayout implements Filter.FilterList
      */
     public void setOnSearchViewListener(SearchViewListener listener) {
         mSearchViewListener = listener;
+    }
+
+    /**
+     * Ellipsize suggestions longer than one line.
+     *
+     * @param ellipsize
+     */
+    public void setEllipsize(boolean ellipsize) {
+        this.ellipsize = ellipsize;
     }
 
     @Override

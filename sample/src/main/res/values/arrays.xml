@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="query_suggestions">
+        <item>A very very long suggestion that would span multiple lines.</item>
         <item>Android</item>
         <item>iOS</item>
         <item>SCALA</item>

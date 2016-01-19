@@ -26,6 +26,7 @@ public class SearchAdapter extends BaseAdapter implements Filterable {
     private String[] suggestions;
     private Drawable suggestionIcon;
     private LayoutInflater inflater;
+    private boolean ellipsize;
 
     public SearchAdapter(Context context, String[] suggestions) {
         inflater = LayoutInflater.from(context);
@@ -33,11 +34,12 @@ public class SearchAdapter extends BaseAdapter implements Filterable {
         this.suggestions = suggestions;
     }
 
-    public SearchAdapter(Context context, String[] suggestions, Drawable suggestionIcon) {
+    public SearchAdapter(Context context, String[] suggestions, Drawable suggestionIcon, boolean ellipsize) {
         inflater = LayoutInflater.from(context);
         data = new ArrayList<>();
         this.suggestions = suggestions;
         this.suggestionIcon = suggestionIcon;
+        this.ellipsize = ellipsize;
     }
 
     @Override
@@ -106,6 +108,10 @@ public class SearchAdapter extends BaseAdapter implements Filterable {
         String currentListData = (String) getItem(position);
 
         viewHolder.textView.setText(currentListData);
+        if (ellipsize) {
+            viewHolder.textView.setSingleLine();
+            viewHolder.textView.setEllipsize(TextUtils.TruncateAt.END);
+        }
 
         return convertView;
     }
