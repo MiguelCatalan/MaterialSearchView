@@ -68,6 +68,7 @@ public class MaterialSearchView extends FrameLayout implements Filter.FilterList
     private ListAdapter mAdapter;
 
     private SavedState mSavedState;
+    private boolean submit = false;
 
     private boolean ellipsize = false;
 
@@ -369,6 +370,15 @@ public class MaterialSearchView extends FrameLayout implements Filter.FilterList
     }
 
     /**
+     * Submit the query as soon as the user clicks the item.
+     *
+     * @param submit submit state
+     */
+    public void setSubmitOnClick(boolean submit) {
+        this.submit = submit;
+    }
+
+    /**
      * Set Suggest List OnItemClickListener
      *
      * @param listener
@@ -402,7 +412,7 @@ public class MaterialSearchView extends FrameLayout implements Filter.FilterList
             setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    setQuery((String) adapter.getItem(position), false);
+                    setQuery((String) adapter.getItem(position), submit);
                 }
             });
         } else {
