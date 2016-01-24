@@ -12,7 +12,7 @@ Cute library to implement SearchView in a Material Design Approach. *Works from 
 **Add the dependencies to your gradle file:**
 ```javascript
 	dependencies {
-    	compile 'com.miguelcatalan:materialsearchview:1.3.1'
+    	compile 'com.miguelcatalan:materialsearchview:1.4.0'
 	}
 ```
 **Add MaterialSearchView to your layout file along with the Toolbar** *(Add this block at the bottom of your layout, in order to display it over the rest of the view)*:
