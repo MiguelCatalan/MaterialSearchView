@@ -68,6 +68,9 @@ public class MaterialSearchView extends FrameLayout implements Filter.FilterList
     private ListAdapter mAdapter;
 
     private SavedState mSavedState;
+    private boolean submit = false;
+
+    private boolean ellipsize = false;
 
     private boolean allowVoiceSearch;
     private Drawable suggestionIcon;
@@ -265,14 +268,13 @@ public class MaterialSearchView extends FrameLayout implements Filter.FilterList
     }
 
     private boolean isVoiceAvailable() {
+        if (isInEditMode()) {
+            return true;
+        }
         PackageManager pm = getContext().getPackageManager();
         List<ResolveInfo> activities = pm.queryIntentActivities(
                 new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH), 0);
-        if (activities.size() == 0) {
-            return false;
-        } else {
-            return true;
-        }
+        return activities.size() == 0;
     }
 
     public void hideKeyboard(View view) {
@@ -368,6 +370,15 @@ public class MaterialSearchView extends FrameLayout implements Filter.FilterList
     }
 
     /**
+     * Submit the query as soon as the user clicks the item.
+     *
+     * @param submit submit state
+     */
+    public void setSubmitOnClick(boolean submit) {
+        this.submit = submit;
+    }
+
+    /**
      * Set Suggest List OnItemClickListener
      *
      * @param listener
@@ -395,13 +406,13 @@ public class MaterialSearchView extends FrameLayout implements Filter.FilterList
     public void setSuggestions(String[] suggestions) {
         if (suggestions != null && suggestions.length > 0) {
             mTintView.setVisibility(VISIBLE);
-            final SearchAdapter adapter = new SearchAdapter(mContext, suggestions, suggestionIcon);
+            final SearchAdapter adapter = new SearchAdapter(mContext, suggestions, suggestionIcon, ellipsize);
             setAdapter(adapter);
 
             setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    setQuery((String) adapter.getItem(position), false);
+                    setQuery((String) adapter.getItem(position), submit);
                 }
             });
         } else {
@@ -582,6 +593,15 @@ public class MaterialSearchView extends FrameLayout implements Filter.FilterList
      */
     public void setOnSearchViewListener(SearchViewListener listener) {
         mSearchViewListener = listener;
+    }
+
+    /**
+     * Ellipsize suggestions longer than one line.
+     *
+     * @param ellipsize
+     */
+    public void setEllipsize(boolean ellipsize) {
+        this.ellipsize = ellipsize;
     }
 
     @Override
