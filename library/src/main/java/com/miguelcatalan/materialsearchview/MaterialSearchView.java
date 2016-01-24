@@ -267,14 +267,13 @@ public class MaterialSearchView extends FrameLayout implements Filter.FilterList
     }
 
     private boolean isVoiceAvailable() {
+        if (isInEditMode()) {
+            return true;
+        }
         PackageManager pm = getContext().getPackageManager();
         List<ResolveInfo> activities = pm.queryIntentActivities(
                 new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH), 0);
-        if (activities.size() == 0) {
-            return false;
-        } else {
-            return true;
-        }
+        return activities.size() == 0;
     }
 
     public void hideKeyboard(View view) {
