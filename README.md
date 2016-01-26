@@ -8,6 +8,10 @@ Cute library to implement SearchView in a Material Design Approach. *Works from 
        src="https://developer.android.com/images/brand/en_generic_rgb_wo_60.png" />
 </a>
 
+#Native version
+Maybe it would be useful to take a look into the new official approach
+http://www.materialdoc.com/search-filter/
+
 # Usage
 **Add the dependencies to your gradle file:**
 ```javascript
