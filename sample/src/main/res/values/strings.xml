@@ -6,6 +6,7 @@
     <string name="title_activity_voice">VoiceActivity</string>
     <string name="title_activity_sticky">StickyActivity</string>
     <string name="title_activity_tab">TabActivity</string>
+    <string name="title_activity_input_type">InputTypeActivity</string>
 
     <string name="action_settings">Settings</string>
 </resources>

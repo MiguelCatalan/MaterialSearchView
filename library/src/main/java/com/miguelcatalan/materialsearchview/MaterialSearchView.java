@@ -21,6 +21,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -133,6 +134,10 @@ public class MaterialSearchView extends FrameLayout implements Filter.FilterList
 
             if (a.hasValue(R.styleable.MaterialSearchView_searchSuggestionIcon)) {
                 setSuggestionIcon(a.getDrawable(R.styleable.MaterialSearchView_searchSuggestionIcon));
+            }
+
+            if (a.hasValue(R.styleable.MaterialSearchView_android_inputType)) {
+                setInputType(a.getInt(R.styleable.MaterialSearchView_android_inputType, EditorInfo.TYPE_NULL));
             }
 
             a.recycle();
@@ -333,6 +338,10 @@ public class MaterialSearchView extends FrameLayout implements Filter.FilterList
 
     public void setSuggestionIcon(Drawable drawable) {
         suggestionIcon = drawable;
+    }
+
+    public void setInputType(int inputType) {
+        mSearchSrcTextView.setInputType(inputType);
     }
 
     public void setSuggestionBackground(Drawable background) {

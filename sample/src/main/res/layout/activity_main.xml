@@ -15,37 +15,44 @@
 
             <Button
                 android:id="@+id/button_default"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Default"
                 android:textColor="@color/theme_secondary_text" />
 
             <Button
                 android:id="@+id/button_themed"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Themed"
                 android:textColor="@color/theme_secondary_text" />
 
             <Button
                 android:id="@+id/button_voice"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Voice"
                 android:textColor="@color/theme_secondary_text" />
 
             <Button
                 android:id="@+id/button_sticky"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Sticky"
                 android:textColor="@color/theme_secondary_text" />
 
             <Button
                 android:id="@+id/button_tab"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Tabs"
+                android:textColor="@color/theme_secondary_text" />
+
+            <Button
+                android:id="@+id/button_input_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Input type"
                 android:textColor="@color/theme_secondary_text" />
         </LinearLayout>
 

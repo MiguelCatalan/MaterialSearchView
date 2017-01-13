@@ -10,5 +10,6 @@
         <attr name="android:hint" />
         <attr name="android:textColor" />
         <attr name="android:textColorHint" />
+        <attr name="android:inputType" />
     </declare-styleable>
 </resources>
