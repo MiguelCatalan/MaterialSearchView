@@ -36,6 +36,10 @@
             android:name=".TabActivity"
             android:label="@string/title_activity_tab">
         </activity>
+        <activity
+            android:name=".InputTypeActivity"
+            android:label="@string/title_activity_input_type">
+        </activity>
     </application>
 
 </manifest>
